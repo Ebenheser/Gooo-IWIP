@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go-IWIP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+            text-align: center;
+        }
+        header img {
+            width: 100px;
+            height: auto;
+        }
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+        section {
+            background: #ffffff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #e8491d;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff6a3c;
+        }
+        @media(max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="iwip.png" alt="RideConnect Logo" class="logo">
+            <h2>Temukan Supir, Rumah Kost kosong, dan Pesan Makanan anda di sini</h2>
+            <h1>go-IWIP</h1>
+            
+                   </header>
+
+        <section id="passenger-form">
+            <h2>Form Penumpang</h2>
+            <form id="ride-form">
+                <input type="text" id="passenger-name" name="passenger-name" placeholder="Nama Penumpang" required>
+                <input type="tel" id="passenger-phone" name="passenger-phone" placeholder="Nomor Telepon" required>
+                <input type="text" id="pickup-location" name="pickup-location" placeholder="Lokasi Penjemputan" required>
+                <input type="text" id="destination" name="destination" placeholder="Tujuan" required>
+                <select id="driver-select" name="driver-select" required>
+                    <option value="">Pilih Driver</option>
+                </select>
+                <button type="submit">Pesan Perjalanan</button>
+            </form>
+        </section>
+
+        <section id="driver-registration">
+            <h2>Pendaftaran Driver</h2>
+            <form id="driver-form">
+                <input type="text" id="driver-name" name="driver-name" placeholder="Nama : Nama-asal(Budi-driver Sagea)" required>
+                <input type="tel" id="driver-phone" name="driver-phone" placeholder="No WA : +6282312345678" required>
+                <input type="text" id="vehicle-type" name="vehicle-type" placeholder="Kendaraan : Mobil sedang, Mobil Besar, Motor" required>
+                <button type="submit">Daftar sebagai Driver</button>
+            </form>
+        </section>
+
+        <section id="food-order">
+            <h2>Pesan Makanan</h2>
+            <form id="food-form">
+                <select id="food-stall-select" name="food-stall-select" required>
+                    <option value="">Pilih Lapak Makanan</option>
+                </select>
+                <input type="text" id="food-item" name="food-item" placeholder="Nama Makanan" required>
+                <input type="number" id="food-quantity" name="food-quantity" placeholder="Jumlah" required min="1">
+                <button type="submit">Pesan Makanan</button>
+            </form>
+        </section>
+
+        <section id="food-stall-registration">
+            <h2>Pendaftaran Lapak Makanan</h2>
+            <form id="food-stall-form">
+                <input type="text" id="stall-name" name="stall-name" placeholder="Nama RM : Contoh RM. Minang" required>
+                <input type="tel" id="stall-whatsapp" name="stall-whatsapp" placeholder="Nomor Whatsapp : +6282311223344" required>
+                <input type="text" id="stall-menu" name="stall-menu" placeholder="Menu (tulis semua menu anda)" required>
+                <button type="submit">Daftar Lapak Makanan</button>
+            </form>
+        </section>
+
+     
+
+    </section>
+
+    <section id="kost-search">
+        <h2>Cari Rumah Kost</h2>
+        <form id="kost-search-form">
+            <input type="text" id="kost-location" name="kost-location" placeholder="Lokasi Kost" required>
+            <input type="number" id="kost-price" name="kost-price" placeholder="Harga Maksimum" required>
+            <select id="kost-type" name="kost-type" required>
+                <option value="">Pilih Tipe Kost</option>
+                <option value="putra">Kost Putra</option>
+                <option value="putri">Kost Putri</option>
+                <option value="campur">Kost Campur</option>
+            </select>
+            <button type="submit">Cari Kost</button>
+        </form>
+    </section>
+
+    <section id="kost-owner-registration">
+        <h2>Pendaftaran Pemilik Rumah Kost</h2>
+        <form id="kost-owner-form">
+            <input type="text" id="owner-name" name="owner-name" placeholder="Nama Pemilik" required>
+            <input type="tel" id="owner-phone" name="owner-phone" placeholder="Nomor Whatsapp : +6282311223344" required>
+            <input type="text" id="kost-name" name="kost-name" placeholder="Nama Kost" required>
+            <input type="text" id="kost-address" name="kost-address" placeholder="Alamat Kost" required>
+            <select id="kost-type-reg" name="kost-type-reg" required>
+                <option value="">Pilih Tipe Kost</option>
+                <option value="putra">Kost Putra</option>
+                <option value="putri">Kost Putri</option>
+                <option value="campur">Kost Campur</option>
+            </select>
+            <input type="number" id="kost-price-reg" name="kost-price-reg" placeholder="Harga per Bulan" required>
+            <button type="submit">Daftar Kost</button>
+        </form>
+    </section>
+</div>
+
+<script>
+
+
+    // Initialize kost data from localStorage or create empty array
+    let kostData = JSON.parse(localStorage.getItem('kostData')) || [];
+
+    // Function to update localStorage
+    function updateLocalStorage() {
+        localStorage.setItem('drivers', JSON.stringify(drivers));
+        localStorage.setItem('foodStalls', JSON.stringify(foodStalls));
+        localStorage.setItem('kostData', JSON.stringify(kostData));
+    }
+
+   
+    // Kost owner registration
+    document.getElementById('kost-owner-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const ownerName = document.getElementById('owner-name').value;
+        const ownerPhone = document.getElementById('owner-phone').value;
+        const kostName = document.getElementById('kost-name').value;
+        const kostAddress = document.getElementById('kost-address').value;
+        const kostType = document.getElementById('kost-type-reg').value;
+        const kostPrice = document.getElementById('kost-price-reg').value;
+        
+        kostData.push({ownerName, ownerPhone, kostName, kostAddress, kostType, kostPrice});
+        updateLocalStorage();
+        alert('Rumah Kost berhasil didaftarkan!');
+        this.reset();
+    });
+
+    // Kost search
+    document.getElementById('kost-search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const location = document.getElementById('kost-location').value.toLowerCase();
+        const maxPrice = parseInt(document.getElementById('kost-price').value);
+        const type = document.getElementById('kost-type').value;
+        
+        const filteredKosts = kostData.filter(kost => 
+            kost.kostAddress.toLowerCase().includes(location) &&
+            parseInt(kost.kostPrice) <= maxPrice &&
+            (type === '' || kost.kostType === type)
+        );
+        
+        if (filteredKosts.length > 0) {
+            let message = 'Kost yang tersedia:\n\n';
+            filteredKosts.forEach(kost => {
+                message += `${kost.kostName} - ${kost.kostAddress}\nTipe: ${kost.kostType}, Harga: ${kost.kostPrice}\nPemilik: ${kost.ownerName}, Telepon: ${kost.ownerPhone}\n\n`;
+            });
+            alert(message);
+        } else {
+            alert('Tidak ada kost yang sesuai dengan kriteria pencarian.');
+        }
+    });
+
+    // ... existing code ...
+</script>
+
+    </div>
+
+    <script>
+        // Initialize data from localStorage or create empty arrays
+        let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+        let foodStalls = JSON.parse(localStorage.getItem('foodStalls')) || [];
+
+        // Function to update localStorage
+        function updateLocalStorage() {
+            localStorage.setItem('drivers', JSON.stringify(drivers));
+            localStorage.setItem('foodStalls', JSON.stringify(foodStalls));
+        }
+
+        // Driver registration
+        document.getElementById('driver-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('driver-name').value;
+            const phone = document.getElementById('driver-phone').value;
+            const vehicle = document.getElementById('vehicle-type').value;
+            
+            drivers.push({name, phone, vehicle});
+            updateDriverSelect();
+            updateLocalStorage();
+            alert('Driver berhasil didaftarkan!');
+            this.reset();
+        });
+
+        // Function to update driver select options
+        function updateDriverSelect() {
+            const select = document.getElementById('driver-select');
+            select.innerHTML = '<option value="">Pilih Driver</option>';
+            drivers.forEach((driver, index) => {
+                select.innerHTML += `<option value="${index}">${driver.name} - ${driver.vehicle}</option>`;
+            });
+        }
+
+        // Ride booking
+        document.getElementById('ride-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const passengerName = document.getElementById('passenger-name').value;
+            const passengerPhone = document.getElementById('passenger-phone').value;
+            const pickup = document.getElementById('pickup-location').value;
+            const destination = document.getElementById('destination').value;
+            const driverIndex = document.getElementById('driver-select').value;
+            
+            if (driverIndex !== "") {
+                const driver = drivers[driverIndex];
+                const message = `Halo ${driver.name}, saya ${passengerName} ingin memesan perjalanan dari ${pickup} ke ${destination}. Nomor telepon saya ${passengerPhone}.`;
+                const whatsappLink = `https://wa.me/${driver.phone}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappLink, '_blank');
+            } else {
+                alert('Silakan pilih driver terlebih dahulu.');
+            }
+            <h1>APP Own : ebenmanansang9@gmail.com</h1>
+        });
+
+        // Food stall registration
+        document.getElementById('food-stall-form').addEventListener('submit', function(e) {
+            e
